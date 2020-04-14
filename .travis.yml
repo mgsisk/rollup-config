@@ -1,0 +1,17 @@
+language: node_js
+
+node_js:
+  - lts/*
+  - node
+
+env:
+  global:
+    - CC_TEST_REPORTER_ID=d5c4115003e85ff60ac9a09342f3f7747db83b8c3ae4be0a52a8f33158db295d
+
+before_script:
+  - wget -O ./cctr https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+  - chmod +x ./cctr
+  - ./cctr before-build
+
+after_script:
+  - ./cctr after-build -t lcov --exit-code $TRAVIS_TEST_RESULT
