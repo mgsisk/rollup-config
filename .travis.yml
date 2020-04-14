@@ -15,3 +15,12 @@ before_script:
 
 after_script:
   - ./cctr after-build -t lcov --exit-code $TRAVIS_TEST_RESULT
+
+deploy:
+  provider: npm
+  email: me@mgsisk.com
+  api_key:
+    secure: CVAOHh4unq/hmjDb3hofUmhHVCEaFrBjVIV8LcezDUBSStxaaxMfdA27aBMZ9C6sE/y6bpeIZgS+sDk31aMulT0AvkmU/w31fba8TpNhE4QNl7lF8m5ps/nREA0HaT2KRDEzFrXvYwH08/irn3wueo5AFTkwlToRMkDtY6rMaeIf2K0+B92Wlwv9NzdVsT50ndgoNsDRWQqFhkI2Q3AHd9ecBrZ8HoXBHCIJ6yb2jBJ6eaLfeNP9rlN7qnKfT09o5u8p2XM+lkiSk42ncZvGclC2bBmiUG/qkKAKK5y3PVfr4aJ0VgIUqK7HS5+I/CXzTIwwTnXEsV1UDukHDu3bAMROB1QD0V/1W1PE0YooYQ6IEgv62zeFgk5xVZNgRPIVEOVQAtBlMyvkZKsFaOqifghW9USHtUS6qWKPYNJHQS2dMfVuw2H4UTwyBOPwJi5Enev1UYdVjzY8jfwUecZc8b3Z2D1CBNktmZVEZ1/k+4qcoQV+Dd0dZ2GXBXDsE7dPS9vpsiEUX76/Zebn7ObtinNuBA9zeQaEfgtzsvsAiyAcxDsDpGLvhILa5Agu0tp7443XPgFjr0fmnjt6qThHO03pw5Bfj4m07Ssy8ijT/amN/pqRSlTbPLwuVZH9YFXia571+2oWl78scvAghVUqKKM6PZ5gc42+kZ+jRdQklg0=
+  on:
+    repo: mgsisk/rollup-config
+    tags: true
