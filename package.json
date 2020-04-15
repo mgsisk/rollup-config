@@ -1,0 +1,56 @@
+{
+  "name": "@mgsisk/rollup-config",
+  "version": "0.1.0",
+  "description": "Opinionated configuration for Rollup.",
+  "main": "src/index.js",
+  "scripts": {
+    "lint.js": "eslint '**/*.js' '**/.*.js'",
+    "lint.json": "printf 'package-lock.json package.json' | xargs -n1 jsonlint -q",
+    "lint.md": "remark . .github/ --ignore-pattern 'LICENSE*'",
+    "lint.sh": "shellcheck *.sh",
+    "lint.yml": "yamllint '**/*.yml' '**/.*.yml'",
+    "test": "tap test/index.js",
+    "preversion": "npm test",
+    "version": "git add --all",
+    "postversion": "git push --follow-tags"
+  },
+  "repository": "github:mgsisk/rollup-config",
+  "keywords": [
+    "rollup",
+    "rollup-config",
+    "rollup-plugin"
+  ],
+  "author": "mgsisk <me@mgsisk.com> (https://mgsisk.com)",
+  "license": "ISC",
+  "bugs": "https://github.com/mgsisk/rollup-config/issues",
+  "homepage": "https://github.com/mgsisk/rollup-config",
+  "funding": "https://github.com/mgsisk/rollup-config?sponsor=1",
+  "files": [
+    "src"
+  ],
+  "directories": {
+    "doc": "docs",
+    "lib": "src",
+    "test": "test"
+  },
+  "dependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-terser": "^5.3.0"
+  },
+  "peerDependencies": {
+    "rollup": ">= 0.66.0"
+  },
+  "devDependencies": {
+    "@mgsisk/eslint-config": "^1.0.0",
+    "@mgsisk/remark-lint-config": "^0.3.0",
+    "eslint": "^6.8.0",
+    "jsonlint": "^1.6.3",
+    "remark-cli": "^8.0.0",
+    "rollup": "^2.6.1",
+    "shellcheck": "^0.4.2",
+    "tap": "^14.10.7",
+    "yaml-lint": "^1.2.4"
+  }
+}
