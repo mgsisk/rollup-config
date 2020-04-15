@@ -68,17 +68,17 @@ anyone that has found this project useful.
 [badge-funding]: https://img.shields.io/liberapay/receives/mgsisk
 [badge-maintainability]: https://img.shields.io/codeclimate/maintainability/mgsisk/rollup-config
 [badge-release]: https://img.shields.io/github/v/tag/mgsisk/rollup-config?sort=semver
-[changelog]: https://github.com/mgsisk/rollup-config/docs/CHANGELOG.md
-[code of conduct]: https://github.com/mgsisk/rollup-config/docs/CODE_OF_CONDUCT.md
-[contributions]: https://github.com/mgsisk/rollup-config/docs/CONTRIBUTING.md
-[contributors]: https://github.com/mgsisk/rollup-config/docs/AUTHORS.md
+[changelog]: https://github.com/mgsisk/rollup-config/blob/master/docs/CHANGELOG.md
+[code of conduct]: https://github.com/mgsisk/rollup-config/blob/master/docs/CODE_OF_CONDUCT.md
+[contributions]: https://github.com/mgsisk/rollup-config/blob/master/docs/CONTRIBUTING.md
+[contributors]: https://github.com/mgsisk/rollup-config/blob/master/docs/AUTHORS.md
 [isc]: https://github.com/mgsisk/rollup-config/LICENSE.md
-[other works]: https://github.com/mgsisk/rollup-config/docs/THANKS.md
+[other works]: https://github.com/mgsisk/rollup-config/blob/master/docs/THANKS.md
 [rollup-plugin-babel]: https://github.com/rollup/rollup-plugin-babel
 [rollup-plugin-terser]: https://github.com/TrySound/rollup-plugin-terser
 [rollup]: https://rollupjs.org
-[security]: https://github.com/mgsisk/rollup-config/docs/SECURITY.md
-[support resources]: https://github.com/mgsisk/rollup-config/docs/SUPPORT.md
+[security]: https://github.com/mgsisk/rollup-config/blob/master/docs/SECURITY.md
+[support resources]: https://github.com/mgsisk/rollup-config/blob/master/docs/SUPPORT.md
 [url-build]: https://travis-ci.com/mgsisk/rollup-config
 [url-coverage]: https://codeclimate.com/github/mgsisk/rollup-config
 [url-funding]: https://github.com/mgsisk/rollup-config/blob/master/docs/CONTRIBUTING.md#funding
