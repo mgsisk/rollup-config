@@ -13,16 +13,13 @@ before_script:
   - chmod +x ./cctr
   - ./cctr before-build
 
-after_success:
-  - npm pack
-
 after_script:
   - ./cctr after-build -t lcov --exit-code $TRAVIS_TEST_RESULT
 
 jobs:
   include:
     - stage: deploy
-      script: skip
+      script: npm pack
       deploy:
         - provider: npm
           email: me@mgsisk.com
