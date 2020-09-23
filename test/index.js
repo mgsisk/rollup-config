@@ -1,5 +1,3 @@
-'use strict'
-
 const plugin = require('../src/index.js')
 const rollup = require('rollup')
 const tap = require('tap')
