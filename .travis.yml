@@ -13,14 +13,39 @@ before_script:
   - chmod +x ./cctr
   - ./cctr before-build
 
+after_success:
+  - npm pack
+
 after_script:
   - ./cctr after-build -t lcov --exit-code $TRAVIS_TEST_RESULT
 
-deploy:
-  provider: npm
-  email: me@mgsisk.com
-  api_key:
-    secure: CVAOHh4unq/hmjDb3hofUmhHVCEaFrBjVIV8LcezDUBSStxaaxMfdA27aBMZ9C6sE/y6bpeIZgS+sDk31aMulT0AvkmU/w31fba8TpNhE4QNl7lF8m5ps/nREA0HaT2KRDEzFrXvYwH08/irn3wueo5AFTkwlToRMkDtY6rMaeIf2K0+B92Wlwv9NzdVsT50ndgoNsDRWQqFhkI2Q3AHd9ecBrZ8HoXBHCIJ6yb2jBJ6eaLfeNP9rlN7qnKfT09o5u8p2XM+lkiSk42ncZvGclC2bBmiUG/qkKAKK5y3PVfr4aJ0VgIUqK7HS5+I/CXzTIwwTnXEsV1UDukHDu3bAMROB1QD0V/1W1PE0YooYQ6IEgv62zeFgk5xVZNgRPIVEOVQAtBlMyvkZKsFaOqifghW9USHtUS6qWKPYNJHQS2dMfVuw2H4UTwyBOPwJi5Enev1UYdVjzY8jfwUecZc8b3Z2D1CBNktmZVEZ1/k+4qcoQV+Dd0dZ2GXBXDsE7dPS9vpsiEUX76/Zebn7ObtinNuBA9zeQaEfgtzsvsAiyAcxDsDpGLvhILa5Agu0tp7443XPgFjr0fmnjt6qThHO03pw5Bfj4m07Ssy8ijT/amN/pqRSlTbPLwuVZH9YFXia571+2oWl78scvAghVUqKKM6PZ5gc42+kZ+jRdQklg0=
-  on:
-    repo: mgsisk/rollup-config
-    tags: true
+jobs:
+  include:
+    - stage: deploy
+      script: skip
+      deploy:
+        - provider: npm
+          email: me@mgsisk.com
+          api_key:
+            secure: QmeavdXESqxKCL0tcjg7hK/gqvHje6DwPzx8lM6MIXhnLdJtEs+1Ikgc5b0nIrMt9ZnREwf9NTGlVMNcs/1k/XfL7NLwvfx0KLTQB06vYQ+nSaCzJrumJOOtNUV5jXvRwTUMBC60/zn9/TYnp3j2L+92QlKsDn6oRskOeZ5Kk/bM0cBLRCIqa3JTaYq7SlqHGpEvYJhEZM1hLRBUjF1MFJmPn3QXCFirFTz/0u0kAaS66YQLCHhRf8vd9kIbnhakK1mJHc/AyA2x7bgnSd4AY4Ns6sAr5xirqGctPR19bVKngBmFva/TItdl8RQg+b5qoy0XqZrKZFxlkWXhyjs0i130HvdqUf7zeEluBQWBPVDT0SwGH/sSnbkwnB6ntgOHFT5WQkp5vXolYlwWoiHoH+yMPe3aZUxrOKkHGcSLnbPyW8dfMTf50u3QpPOz2d2yprn3QmcYzZCwNxlvtLxcmD3i79LMgS2q7TcTza6pTdwqedU/uEqtSM/oKuxHo6AGD1H9+bwE1no2Z60r7BAYvH1nZZGpk0/w95zQM5UOgVayj3eKoLdUhwd84WRBn1CX5OmumNotQxbMv+mSFKesCsuGLFfMx6srnu3EWYNu/hP6bK1fDLTkkdkFOQSauAe+un1TwaCNyDZx1Xfgha7+wCruzM22VsunsIp28zhlIg0=
+          on:
+            repo: mgsisk/rollup-config
+            tags: true
+        - provider: npm
+          registry: https://npm.pkg.github.com
+          email: me@mgsisk.com
+          api_key:
+            secure: MqBsn9kYwcTyf0U4QBcydcPCdvBGjDegl11Tc5XPtz3g4TO9whNTlKH1sothvZbTjv3qLw+hwxIUI/2xbJQeCWpq/KgQOHdxaHeyVzIGZBhc+q8d464Y8BkWmFXMYWsPSz70+RqRZOwn4pn5DirKJTtQYFymd5mWmi6GZgKKiCXH7gCusIIAsVj4c87ywShPiE7F2VIv30dU+v+lNRnTs3KmN3ldt9MAt5flM1LYmG2FbHPfrn5MSsnGnrLiH3ceaUlGzM7VlIShOa4IfU5qvgCggsSfVedSFCAfvVRgrFx+K9EXFiNwqVY6FFPXzPMvHebbqv42azA794FKD3dqAesFicvjhHjealE8S1mJgz6s+uWlg0HhmIa43ATr4ZevzaYFL4gZuxaTQLUE0QBHySqXTT9LfnuKJg3vZJWg7PsteSrZCflHyIj6YVSrVmLasu/rOQ/3lEk1UIGGa7NGnxDS0vyz6rtJFkYuDfrSeHrt0c7z0NIA+D30PO0pETQZGczYUYtkUcnaTOAPlPrPQqPzgN5IZdDJsXVK+34mFtCC50a8cABGfGehMzHJvbNWvc2fSAF6c3hYApEd/CH6Envl9GyLiQagNeKtl2sAm8W6afJF2Hck2h12E1NkQC4pSeRTv9QIfcqXTR8v4MBvpNltVPUTlsAlp3I4ZXWaTUU=
+          edge:
+            branch: master
+          on:
+            repo: mgsisk/rollup-config
+            tags: true
+        - provider: releases
+          skip_cleanup: true
+          file: mgsisk-rollup-config-*.tgz
+          api_key:
+            secure: MqBsn9kYwcTyf0U4QBcydcPCdvBGjDegl11Tc5XPtz3g4TO9whNTlKH1sothvZbTjv3qLw+hwxIUI/2xbJQeCWpq/KgQOHdxaHeyVzIGZBhc+q8d464Y8BkWmFXMYWsPSz70+RqRZOwn4pn5DirKJTtQYFymd5mWmi6GZgKKiCXH7gCusIIAsVj4c87ywShPiE7F2VIv30dU+v+lNRnTs3KmN3ldt9MAt5flM1LYmG2FbHPfrn5MSsnGnrLiH3ceaUlGzM7VlIShOa4IfU5qvgCggsSfVedSFCAfvVRgrFx+K9EXFiNwqVY6FFPXzPMvHebbqv42azA794FKD3dqAesFicvjhHjealE8S1mJgz6s+uWlg0HhmIa43ATr4ZevzaYFL4gZuxaTQLUE0QBHySqXTT9LfnuKJg3vZJWg7PsteSrZCflHyIj6YVSrVmLasu/rOQ/3lEk1UIGGa7NGnxDS0vyz6rtJFkYuDfrSeHrt0c7z0NIA+D30PO0pETQZGczYUYtkUcnaTOAPlPrPQqPzgN5IZdDJsXVK+34mFtCC50a8cABGfGehMzHJvbNWvc2fSAF6c3hYApEd/CH6Envl9GyLiQagNeKtl2sAm8W6afJF2Hck2h12E1NkQC4pSeRTv9QIfcqXTR8v4MBvpNltVPUTlsAlp3I4ZXWaTUU=
+          on:
+            repo: mgsisk/rollup-config
+            tags: true
