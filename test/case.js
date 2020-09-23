@@ -1,5 +1,3 @@
-'use strict'
-
 /**
  * Dummy function for testing.
  *
