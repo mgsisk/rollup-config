@@ -40,6 +40,7 @@ jobs:
             tags: true
         - provider: releases
           skip_cleanup: true
+          file_glob: true
           file: mgsisk-rollup-config-*.tgz
           api_key:
             secure: MqBsn9kYwcTyf0U4QBcydcPCdvBGjDegl11Tc5XPtz3g4TO9whNTlKH1sothvZbTjv3qLw+hwxIUI/2xbJQeCWpq/KgQOHdxaHeyVzIGZBhc+q8d464Y8BkWmFXMYWsPSz70+RqRZOwn4pn5DirKJTtQYFymd5mWmi6GZgKKiCXH7gCusIIAsVj4c87ywShPiE7F2VIv30dU+v+lNRnTs3KmN3ldt9MAt5flM1LYmG2FbHPfrn5MSsnGnrLiH3ceaUlGzM7VlIShOa4IfU5qvgCggsSfVedSFCAfvVRgrFx+K9EXFiNwqVY6FFPXzPMvHebbqv42azA794FKD3dqAesFicvjhHjealE8S1mJgz6s+uWlg0HhmIa43ATr4ZevzaYFL4gZuxaTQLUE0QBHySqXTT9LfnuKJg3vZJWg7PsteSrZCflHyIj6YVSrVmLasu/rOQ/3lEk1UIGGa7NGnxDS0vyz6rtJFkYuDfrSeHrt0c7z0NIA+D30PO0pETQZGczYUYtkUcnaTOAPlPrPQqPzgN5IZdDJsXVK+34mFtCC50a8cABGfGehMzHJvbNWvc2fSAF6c3hYApEd/CH6Envl9GyLiQagNeKtl2sAm8W6afJF2Hck2h12E1NkQC4pSeRTv9QIfcqXTR8v4MBvpNltVPUTlsAlp3I4ZXWaTUU=
